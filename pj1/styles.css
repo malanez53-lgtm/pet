@@ -1,0 +1,164 @@
+:root{
+  --bg: #ffffff;
+  --muted: #6b6b6b;
+  --accent: #2f8bff;
+  --accent-2: #4aa3ff;
+  --radius: 1500px;
+  --container-max: 1500px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: radial-gradient(circle at 10% 50%, #f3fbff 0%, #ffffff 30%), #ffffff;
+  color: #222;
+}
+.container{
+  width:100%;
+  max-width:var(--container-max);
+  margin:0 auto;
+  /* уменьшенные отступы по краям: горизонтальные padding 70px */
+  padding: 36px 70px;
+}
+
+.site-header{padding-top:8px}
+.header-inner{
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+.logo{
+  font-weight:700;
+  color:var(--accent);
+  display:flex;
+  flex-direction:column;
+  line-height:0.9;
+}
+.logo .logo-top{font-size:18px;font-weight:600}
+.logo .logo-bottom{font-size:22px; color:#111}
+
+.main-nav{
+  margin-left:32px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+}
+.main-nav a{
+  text-decoration:none;
+  color:#222;
+  background: #fff;
+  padding:10px 18px;
+  border-radius:28px;
+  box-shadow: 0 6px 20px rgba(12,18,30,0.06);
+  font-weight:500;
+}
+
+.profile{margin-left:auto}
+.avatar{
+  width:44px;height:44px;border-radius:50%;border:2px solid var(--accent-2);box-shadow:0 6px 20px rgba(12,18,30,0.06);
+}
+
+.hero{
+  display:flex;
+  align-items:center;
+  gap:40px;
+  padding-top:48px;
+  padding-bottom:80px;
+}
+.hero-left{flex:1; display:flex; justify-content:center; align-items:center}
+.hero-right{flex:1; padding-left:40px}
+
+/* увеличенный декоративный круг по центру */
+.glow-wrap{width:680px;height:680px;display:flex;align-items:center;justify-content:center;position:relative}
+/* светящийся круг — фон */
+.glow-circle{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:700px;height:700px;border-radius:50%;
+  background: radial-gradient(circle at 40% 30%, #dff0ff 0%, #eaf7ff 30%, #f7fbff 60%);
+  box-shadow: 0 40px 90px rgba(47,139,255,0.08), 0 10px 40px rgba(47,139,255,0.12) inset;
+  z-index:1;
+}
+
+/* картинка поверх круга */
+.hero-image{
+  position:relative;
+  z-index:2;
+  width:1000px;
+  height:auto;
+  object-fit:contain;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.25));
+  transform: translateY(-50px);
+}
+
+.title{font-size:clamp(48px, 8vw, 96px); margin:0; font-weight:800; color:#333;}
+.subtitle{font-size:clamp(20px, 3.4vw, 36px); margin:6px 0 36px; color:var(--muted); font-weight:300}
+
+.hero-actions{display:flex;gap:22px;align-items:center}
+.btn{padding:16px 24px;border-radius:40px;font-weight:900;border:0;cursor:pointer;box-shadow:0 20px 40px rgba(12,18,30,0.06)}
+.btn-ghost{background: #fff; border:1px solid rgba(30,30,30,0.06); color:#111}
+.btn-primary{background: linear-gradient(90deg,var(--accent),var(--accent-2)); color:#fff}
+.hero-actions{display:flex;gap:28px;align-items:center}
+.btn{
+  /* увеличенные размеры кнопок */
+  padding:20px 48px;
+  border-radius:48px;
+  font-weight:700;
+  font-size:18px;
+  border:0;
+  cursor:pointer;
+  box-shadow:0 22px 48px rgba(12,18,30,0.08);
+  min-width:220px;
+} 
+.btn-ghost{background: #fff; border:3px solid rgba(30,30,30,0.06); color:#111; min-width:200px}
+.btn-primary{background: linear-gradient(90deg,var(--accent),var(--accent-2)); border:3px solid rgba(30,30,30,0.06); color:#fff}
+
+/* Статистика — 4 карточки */
+.stats{padding-top:36px;padding-bottom:72px}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:18px}
+.stat-card{background:#fff;  min-width:350px;min-height:250px;;border-radius:18px;padding:26px 28px;display:flex;flex-direction:column;gap:8px;align-items:flex-start;box-shadow:0 18px 40px rgba(12,18,30,0.06);border:3px solid rgba(12,18,30,0.04)}
+.stat-icon{width:64px;height:64px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#f5fbff,#ffffff);box-shadow:0 14px 30px rgba(47,139,255,0.06);flex:0 0 64px}
+.stat-icon svg{display:block}
+.stat-value{font-size:36px;font-weight:800;color:var(--accent);line-height:1;margin-top:4px}
+.stat-label{font-size:14px;color:var(--muted);font-weight:500}
+
+@media (max-width:1100px){
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:560px){
+  .container{padding:28px 20px}
+  .glow-wrap{width:420px;height:420px}
+  .glow-circle{width:440px;height:440px}
+  .hero-image{width:520px;transform:translateY(-20px)}
+  .stats-grid{grid-template-columns:1fr}
+  .stat-card{flex-direction:row;align-items:center;gap:16px}
+  .stat-value{font-size:28px}
+}
+
+/* Ближайшие турниры */
+.section-title{font-size:28px;margin:6px 0 18px;font-weight:700;color:#111}
+.tournaments-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.tournament-card{display:grid;grid-template-columns:260px 1fr;gap:20px;align-items:center;background:#fff;border-radius:16px;padding:10px;border:3px solid rgba(12,18,30,0.04);box-shadow:0 18px 40px rgba(12,18,30,0.04)}
+.tournament-thumb{width:100%;height:100%;object-fit:cover;border-radius:12px}
+.tournament-body{padding-right:8px}
+.tournament-title{margin:0 0 8px;font-size:20px;font-weight:700;color:#222}
+.tournament-meta{list-style:none;padding:0;margin:0 0 18px;display:flex;flex-direction:column;gap:8px;color:var(--muted)}
+.tournament-meta li{display:flex;align-items:center;gap:10px;font-size:14px}
+.tournament-actions{display:flex}
+.btn-sm{padding:8px 28px;border-radius:28px;font-weight:700;font-size:14px;min-width:auto;box-shadow:0 12px 28px rgba(12,18,30,0.06)}
+
+/* Outline button with liquid-fill effect */
+.btn-outline{background:#fff;color:var(--accent);border:2px solid var(--accent);width:250px;box-shadow:none;position:relative;overflow:hidden;z-index:0;transition:color .35s ease, border-color .35s ease}
+
+
+@media (max-width:1000px){
+  .tournaments-grid{grid-template-columns:1fr}
+  .tournament-card{grid-template-columns:1fr;grid-template-rows:auto auto;gap:12px}
+  .tournament-thumb{height:220px;width:100%}
+  .tournament-body{padding:12px 6px}
+}
+
+
